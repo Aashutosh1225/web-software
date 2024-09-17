@@ -1,109 +1,104 @@
-*  body{
+body{
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
-    }
+}
 
-    .header{
+.header{
     padding: 80px;
     text-align: center;
-    background: #333
-    ;
+    background: #333;
     color: white;
-    }
+}
 
-    .header h1 {
+.header h1 {
     font-size: 40px;
-    }
+}
 
-    .navbar{
+.navbar{
     overflow: hidden;
-    background-color:#1abc9c;
-    }
+    background-color: #1abc9c;
+}
 
-    .navbar a
-    {
+.navbar a {
     float: left;
     display: block;
     color: white;
     text-align: center;
     padding: 14px 20px;
     text-decoration: none;
-    }
-    
-    .navbar a:hover{
+}
+
+.navbar a:hover{
     background-color: #15f4f4;
     color: black;
-    }
+}
 
-    .row{
-    display: -ms-flexbox;
+.row{
     display: flex;
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    -ms-flex: 30%;
-    flex: 30%;
-    background-color:#15f4f4 ;
+    background-color: #15f4f4;
     padding: 20px;
-    }
+}
 
-    .main {
-    -ms-flex: 70%;
+.main {
     flex: 70%;
     background-color: white;
     padding: 20px;
-    }
+}
 
-    .footer
-    {
+.footer{
     padding: 20px;
     text-align: center;
-    background: #ddd
-    }
+    background: #ddd;
+}
+
 .dialog-box {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            border: 1px solid #ccc;
-            padding: 20px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
 .dialog-box button {
-  background-color: #1abc9c;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-        }
- 
+    background-color: #1abc9c;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
 .output-dialog {
-            display: none;
-            position: absolute;
-            top: 10%;
-            left: 50%;
-            transform: translate(-50%, 0);
-            background-color: #f9f9f9;
-            border: 1px solid #aaa;
-            padding: 15px;
-            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
-        }
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: #f9f9f9;
+    border: 1px solid #aaa;
+    padding: 15px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
+
 .output-dialog button {
-  background-color: #1abc9c;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-        }
+    background-color: #1abc9c;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
