@@ -30,7 +30,23 @@
     </div>
 
          <div id="dialog1" class="dialog-box">
-        <p>C program to create a new data file and store a character in it using putc(). Read the character afterwards using getc().</p>
+        <p>#include<stdio.h><br>
+#include<stdlib.h><br>
+int main()<br>
+{<br>
+FILE *fp;<br>
+char ch,re;<br>
+fp=fopen("D:\\sample.txt","w+");<br>
+printf("Enter a character:\n");<br>
+scanf("%c",&ch);<br>
+fputc(ch,fp);<br>
+fseek(fp, 0, SEEK_SET);<br>
+re=fgetc(fp);<br>
+printf("the character in file is:%c \n",re);<br>
+printf("Executed by 023neb712");<br>
+fclose(fp);<br>
+return 0;<br>
+}</p>
         <button onclick="showOutputDialog('output1')">Show Output</button>
         <button onclick="hideDialog('dialog1')">Close</button>
         <!-- Output dialog box -->
@@ -41,7 +57,23 @@
     </div>
 
     <div id="dialog2" class="dialog-box">
-        <p>C program to create a new data file and store an integer in it using putw(). Read the integer afterwards using getw().</p>
+        <p>#include<stdio.h><br>
+#include<stdlib.h><br>
+int main()<br>
+{<br>
+FILE *fp;<br>
+int i,j;<br>
+fp=fopen("D:\\sample.txt","w+");<br>
+printf("Enter a integer:\n");<br>
+scanf("%d",&i);<br>
+putw(i,fp);<br>
+fseek(fp, 0, SEEK_SET);<br>
+j=getw(fp);<br>
+printf("the integer in file is:%d \n",j);<br>
+printf("Executed by 023neb712");<br>
+fclose(fp);<br>
+return 0;<br>
+}</p>
         <button onclick="showOutputDialog('output2')">Show Output</button>
         <button onclick="hideDialog('dialog2')">Close</button>
         <!-- Output dialog box -->
@@ -52,7 +84,23 @@
     </div>
 
     <div id="dialog3" class="dialog-box">
-        <p>C program to create a new data file and store a string in it using fputs(). Read the string afterwards using fgets().</p>
+        <p>#include<stdio.h><br>
+#include<stdlib.h><br>
+int main()<br>
+{<br>
+FILE *fp;<br>
+char i[50],j[50];<br>
+fp=fopen("D:\\sample.txt","w+");<br>
+printf("Enter a string:\n");<br>
+scanf("%s",&i);<br>
+fputs(i,fp);<br>
+fseek(fp, 0, SEEK_SET);<br>
+fgets(j,50,fp);<br>
+printf("the string in file is:%s \n",j);<br>
+printf("Executed by 023neb712");<br>
+fclose(fp);<br>
+return 0;<br>
+}</p>
         <button onclick="showOutputDialog('output3')">Show Output</button>
         <button onclick="hideDialog('dialog3')">Close</button>
         <!-- Output dialog box -->
@@ -63,7 +111,27 @@
     </div>
 
     <div id="dialog4" class="dialog-box">
-        <p>C program to create a new data file and store a sentence “I love C programming.” using fwrite(). Read the file afterwards using fread() upto 8 characters only.</p>
+        <p>#include <stdio.h><br>
+#include <string.h><br>
+
+int main() {<br>
+    FILE *fp;<br>
+    char sentence[] = "I love C programming.";<br>
+    char buffer[9];<br>
+
+    fp = fopen("file.txt", "w");<br>
+    fwrite(sentence, sizeof(char), strlen(sentence), fp);<br>
+    fclose(fp);<br>
+
+   
+    fp = fopen("file.txt", "r");<br>
+    fread(buffer, sizeof(char), 8, fp);<br>
+    printf("Read from file: %s\n", buffer);<br>
+    fclose(fp);<br>
+
+    return 0;<br>
+}
+</p>
         <button onclick="showOutputDialog('output4')">Show Output</button>
         <button onclick="hideDialog('dialog4')">Close</button>
         <!-- Output dialog box -->
@@ -74,7 +142,37 @@
     </div>
 
     <div id="dialog5" class="dialog-box">
-        <p>C program to store Name, Address, Age and Salary of 10 employees in a data file STAFF.TXT.</p>
+        <p>#include <stdio.h><br>
+
+struct Employee {<br>
+    char name[50];<br>
+    char address[100];<br>
+    int age;<br>
+    float salary;<br>
+};<br>
+
+int main() {<br>
+    FILE *fp;<br>
+    struct Employee emp;<br>
+    int i;<br>
+    fp = fopen("STAFF.TXT", "w");<br>
+    for (i = 1; i <= 10; i++) {<br>
+        printf("Enter details for employee %d\n", i);<br>
+        printf("Name: ");<br>
+        scanf("%s", emp.name);<br>
+        printf("Address: ");<br>
+        scanf("%s", emp.address);<br>
+        printf("Age: ");<br>
+        scanf("%d", &emp.age);<br>
+        printf("Salary: ");<br>
+        scanf("%f", &emp.salary);<br>
+        fprintf(fp, "%s %s %d %f\n", emp.name, emp.address, emp.age, emp.salary);<br>
+    }<br>
+    
+    fclose(fp);<br>
+    return 0;<br>
+}<br>
+</p>
         <button onclick="showOutputDialog('output5')">Show Output</button>
         <button onclick="hideDialog('dialog5')">Close</button>
         <!-- Output dialog box -->
@@ -85,7 +183,30 @@
     </div>
 
     <div id="dialog6" class="dialog-box">
-        <p>C program to display the records whose salary is greater than 15000 and who is younger than 25 from the data file STAFF.TXT created in Q5. Display the records in proper format.</p>
+        <p>#include <stdio.h><br>
+
+struct Employee {<br>
+    char name[50];<br>
+    char address[100];<br>
+    int age;<br>
+    float salary;<br>
+};<br>
+
+int main() {<br>
+    FILE *fp;<br>
+    struct Employee emp;<br>
+    fp = fopen("STAFF.TXT", "r");<br>
+    printf("Employees with salary > 15000 and age < 25:\n");<br>
+    while (fscanf(fp, "%s %s %d %f", emp.name, emp.address, &emp.age, &emp.salary) != EOF) {<br>
+        if (emp.salary > 15000 && emp.age < 25) {<br>
+            printf("Name: %s, Address: %s, Age: %d, Salary: %.2f\n", emp.name, emp.address, emp.age, emp.salary);<br>
+        }<br>
+    }<br>
+
+    fclose(fp);<br>
+    return 0;<br>
+}<br>
+</p>
         <button onclick="showOutputDialog('output6')">Show Output</button>
         <button onclick="hideDialog('dialog6')">Close</button>
         <!-- Output dialog box -->
@@ -97,7 +218,36 @@
     </div>
 
     <div id="dialog7" class="dialog-box">
-        <p>C program to add two new records of employees in STAFF.TXT created in Q5.</p>
+        <p>#include <stdio.h><br>
+
+struct Employee {<br>
+    char name[50];<br>
+    char address[100];<br>
+    int age;<br>
+    float salary;<br>
+};<br>
+
+int main() {<br>
+    FILE *fp;<br>
+    struct Employee emp;<br>
+    int i;<br>
+    fp = fopen("STAFF.TXT", "a");<br>
+    for (i = 1; i <= 2; i++) {<br>
+        printf("Enter details for new employee %d\n", i);<br>
+        printf("Name: ");<br>
+        scanf("%s", emp.name);<br>
+        printf("Address: ");<br>
+        scanf("%s", emp.address);<br>
+        printf("Age: ");<br>
+        scanf("%d", &emp.age);<br>
+        printf("Salary: ");<br>
+        scanf("%f", &emp.salary);<br>
+        fprintf(fp, "%s %s %d %f\n", emp.name, emp.address, emp.age, emp.salary);<br>
+    }<br>
+    fclose(fp);<br>
+    return 0;<br>
+}
+</p>
         <button onclick="showOutputDialog('output7')">Show Output</button>
         <button onclick="hideDialog('dialog7')">Close</button>
         <!-- Output dialog box -->
@@ -108,7 +258,31 @@
     </div>
 
     <div id="dialog8" class="dialog-box">
-        <p>C program to read the STAFF.TXT file created in Q5 and save the records of employees with Address “kathmandu” in a new KATHMANDU.TXT file.</p>
+        <p>#include <stdio.h><br>
+#include <string.h><br>
+
+struct Employee {<br>
+    char name[50];<br>
+    char address[100];<br>
+    int age;<br>
+    float salary;<br>
+};<br>
+
+int main() {<br>
+    FILE *fp, *ktm;<br>
+    struct Employee emp;<br>
+    fp = fopen("STAFF.TXT", "r");<br>
+    ktm = fopen("KATHMANDU.TXT", "w");<br>
+    while (fscanf(fp, "%s %s %d %f", emp.name, emp.address, &emp.age, &emp.salary) != EOF) {<br>
+        if (strcmp(emp.address, "Kathmandu") == 0) {<br>
+            fprintf(ktm, "%s %s %d %.2f\n", emp.name, emp.address, emp.age, emp.salary);<br>
+        }<br>
+    }<br>
+    fclose(fp);<br>
+    fclose(ktm);<br>
+    return 0;<br>
+}
+</p>
         <button onclick="showOutputDialog('output8')">Show Output</button>
         <button onclick="hideDialog('dialog8')">Close</button>
         <!-- Output dialog box -->
@@ -119,7 +293,25 @@
     </div>
 
     <div id="dialog9" class="dialog-box">
-        <p>C program to display the records of the KATHMANDU.TXT file created in Q8 and rename it with NEWKATHMANDU.TXT filename.</p>
+        <p>#include <stdio.h><br>
+int main() {<br>
+    FILE *fp;<br>
+    char ch;<br>
+    fp = fopen("KATHMANDU.TXT", "r");<br>
+    printf("Contents of KATHMANDU.TXT:\n");<br>
+    while ((ch = fgetc(fp)) != EOF) {<br>
+        putchar(ch);<br>
+    }<br>
+    fclose(fp);<br>
+    if (rename("KATHMANDU.TXT", "NEWKATHMANDU.TXT") == 0) {<br>
+        printf("\nFile renamed to NEWKATHMANDU.TXT successfully.\n");<br>
+    } else {<br>
+        printf("\nError renaming file.\n");<br>
+    }<br>
+
+    return 0;<br>
+}
+</p>
         <button onclick="showOutputDialog('output9')">Show Output</button>
         <button onclick="hideDialog('dialog9')">Close</button>
         <!-- Output dialog box -->
@@ -130,7 +322,18 @@
     </div>
 
     <div id="dialog10" class="dialog-box">
-        <p>C program to delete the file NEWKATHMANDU.TXT from Q9.</p>
+        <p>#include <stdio.h><br>
+int main() {<br>
+    if (remove("NEWKATHMANDU.TXT") == 0) {<br>
+        printf("NEWKATHMANDU.TXT deleted successfully.\n");<br>
+    } <br>
+            else {<br>
+        printf("Error deleting NEWKATHMANDU.TXT.\n");<br>
+    }<br>
+
+    return 0;<br>
+}
+</p>
         <button onclick="showOutputDialog('output10')">Show Output</button>
         <button onclick="hideDialog('dialog10')">Close</button>
         
