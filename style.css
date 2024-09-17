@@ -111,7 +111,10 @@ body{
     padding: 15px;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
 }
-
+.responsive {
+  width: auto;
+  height: auto;
+}
 .output-dialog button {
     background-color: #1abc9c;
     border: none;
