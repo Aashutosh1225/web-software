@@ -71,7 +71,7 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
         }
-        .dialog-box button {
+.dialog-box button {
   background-color: #1abc9c;
   border: none;
   color: white;
@@ -84,7 +84,7 @@
   cursor: pointer;
         }
  
-        .output-dialog {
+.output-dialog {
             display: none;
             position: absolute;
             top: 10%;
@@ -95,7 +95,7 @@
             padding: 15px;
             box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
         }
-        .output-dialog button {
+.output-dialog button {
   background-color: #1abc9c;
   border: none;
   color: white;
